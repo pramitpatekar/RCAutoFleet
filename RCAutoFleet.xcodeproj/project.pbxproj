@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5C21037A2C92D39500422562 /* RCAutoFleetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2103792C92D39500422562 /* RCAutoFleetApp.swift */; };
-		5C21037C2C92D39500422562 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C21037B2C92D39500422562 /* ContentView.swift */; };
 		5C21037E2C92D39600422562 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C21037D2C92D39600422562 /* Assets.xcassets */; };
 		5C2103812C92D39600422562 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2103802C92D39600422562 /* Preview Assets.xcassets */; };
 		5C21038B2C92D39600422562 /* RCAutoFleetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C21038A2C92D39600422562 /* RCAutoFleetTests.swift */; };
@@ -19,6 +18,7 @@
 		5C4DF25A2C932990001296CE /* CarMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4DF2592C932990001296CE /* CarMapAnnotationView.swift */; };
 		5C4DF25C2C935D21001296CE /* CarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4DF25B2C935D21001296CE /* CarDetailsView.swift */; };
 		5C4DF25E2C93607E001296CE /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4DF25D2C93607E001296CE /* CarViewModel.swift */; };
+		E4E8A7162C940C280008533F /* CarLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8A7152C940C280008533F /* CarLocationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,6 @@
 /* Begin PBXFileReference section */
 		5C2103762C92D39500422562 /* RCAutoFleet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCAutoFleet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C2103792C92D39500422562 /* RCAutoFleetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCAutoFleetApp.swift; sourceTree = "<group>"; };
-		5C21037B2C92D39500422562 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5C21037D2C92D39600422562 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C2103802C92D39600422562 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5C2103862C92D39600422562 /* RCAutoFleetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RCAutoFleetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +53,7 @@
 		5C4DF2592C932990001296CE /* CarMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMapAnnotationView.swift; sourceTree = "<group>"; };
 		5C4DF25B2C935D21001296CE /* CarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsView.swift; sourceTree = "<group>"; };
 		5C4DF25D2C93607E001296CE /* CarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewModel.swift; sourceTree = "<group>"; };
+		E4E8A7152C940C280008533F /* CarLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarLocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,6 @@
 				5C2103A42C92D41D00422562 /* View */,
 				5C4DF2532C92F825001296CE /* ViewModel */,
 				5C2103A32C92D3FF00422562 /* Model */,
-				5C21037B2C92D39500422562 /* ContentView.swift */,
 				5C21037D2C92D39600422562 /* Assets.xcassets */,
 				5C21037F2C92D39600422562 /* Preview Content */,
 			);
@@ -154,6 +153,7 @@
 			children = (
 				5C4DF2592C932990001296CE /* CarMapAnnotationView.swift */,
 				5C4DF25B2C935D21001296CE /* CarDetailsView.swift */,
+				E4E8A7152C940C280008533F /* CarLocationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -304,9 +304,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E8A7162C940C280008533F /* CarLocationView.swift in Sources */,
 				5C4DF2582C92FE61001296CE /* CarDataService.swift in Sources */,
 				5C4DF25E2C93607E001296CE /* CarViewModel.swift in Sources */,
-				5C21037C2C92D39500422562 /* ContentView.swift in Sources */,
 				5C4DF25A2C932990001296CE /* CarMapAnnotationView.swift in Sources */,
 				5C21037A2C92D39500422562 /* RCAutoFleetApp.swift in Sources */,
 				5C4DF25C2C935D21001296CE /* CarDetailsView.swift in Sources */,
@@ -471,6 +471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RCAutoFleet/Preview Content\"";
@@ -489,6 +490,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.reflectcode.RCAutoFleet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -500,6 +502,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RCAutoFleet/Preview Content\"";
@@ -518,6 +521,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.reflectcode.RCAutoFleet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

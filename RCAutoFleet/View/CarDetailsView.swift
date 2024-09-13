@@ -2,114 +2,100 @@
 //  CarDetailsView.swift
 //  RCAutoFleet
 //
-//  Created by Samit Patekar on 12/09/24.
+//  Created by Pramit Patekar on 12/09/24.
 //
 
 import SwiftUI
+import MapKit
 
 struct CarDetailsView: View {
+    
+    @EnvironmentObject private var vm: CarViewModel
+    let cars: CarDataModel
+    
     var body: some View {
-        HStack(alignment: .bottom, spacing: 0) {
-            VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .center, spacing: 10) {
+            VStack(alignment: .center) {
                 imageSection
                 titleSection
                
             }
-            VStack(spacing: 8) {
-                learnMoreButton
+            VStack(spacing: 10) {
                 nextButton
+                reserveCarButton
             }
         }
         .padding(20)
         .background(
-            RoundedRectangle(cornerRadius: 10)
-                .fill(.ultraThinMaterial)
-                .offset(y: 65)
+            LinearGradient(colors: [.white.opacity(0.5),.blue.opacity(0.6),.green], startPoint: .top, endPoint: .bottom)
         )
+        .frame(width: UIScreen.main.bounds.width)
+        .frame(height: UIScreen.main.bounds.height/2)
         .cornerRadius(10)
         
     }
 }
 
+
 #Preview {
-    CarDetailsView()
+    CarDetailsView(cars: CarDataService.cars.first!).padding().environmentObject(CarViewModel())
 }
 
 
-//import SwiftUI
-//
-//struct LocationPreviewView: View {
-//    
-//    @EnvironmentObject private var vm: LocationsViewModel
-//    let location: Location
-//    
-//    var body: some View {
-//        HStack(alignment: .bottom, spacing: 0) {
-//            VStack(alignment: .leading, spacing: 16) {
-//                imageSection
-//                titleSection
-//               
-//            }
-//            VStack(spacing: 8) {
-//                learnMoreButton
-//                nextButton
-//            }
-//        }
-//        .padding(20)
-//        .background(
-//            RoundedRectangle(cornerRadius: 10)
-//                .fill(.ultraThinMaterial)
-//                .offset(y: 65)
-//        )
-//        .cornerRadius(10)
-//        
-//    }
-//}
-//
-//
-//#Preview {
-//    LocationPreviewView(location: LocationsDataService.locations.first!).padding().environmentObject(LocationsViewModel())
-//}
-//
-//
+
+
 extension CarDetailsView {
     
     private var imageSection: some View{
         ZStack {
-            if let imageName = CarDataService(). {
-                Image(imageName)
+            if let imageURL = URL(string: cars.vehiclePicAbsoluteURL) {
+                AsyncImage(url: imageURL) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 300, height: 200)
+                        .cornerRadius(10)
+                } placeholder: {
+                    ProgressView()  // Show a loading indicator while the image is being loaded
+                        .frame(width: 100, height: 100)
+                }
+            } else {
+                // If the URL is invalid, display a default placeholder image
+                Image(systemName: "photo")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 100, height: 100)
                     .cornerRadius(10)
+                    .foregroundColor(.gray)
             }
         }
-        .padding(6)
-        .background(Color.white)
+        .padding(10)
         .cornerRadius(10)
     }
     
     private var titleSection: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(CarDataService.cars.)
+        VStack(alignment: .center, spacing: 4) {
+            Text(cars.vehicleMake)
                 .font(.title2)
                 .fontWeight(.bold)
-            Text(location.cityName)
+            Text("\(cars.licensePlateNumber), \(cars.remainingMileage) km")
                 .font(.subheadline)
                 .fontWeight(.bold)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, alignment: .center)
     }
     
-    private var learnMoreButton: some View {
+    private var reserveCarButton: some View {
         Button(action: {
-            vm.sheetLocation = location
+            
         }, label: {
-            Text("Learn More")
+            Text("Reserve This Car")
                 .font(.headline)
-                .frame(width: 125, height: 35)
+                .frame(width: UIScreen.main.bounds.width - 80, height: 35)
+                .padding(.horizontal)
         })
         .buttonStyle(.borderedProminent)
+        
         
     }
     
@@ -117,9 +103,10 @@ extension CarDetailsView {
         Button(action: {
             vm.nextButtonPressed()
         }, label: {
-            Text("Next")
+            Text("Next Vehicle")
+                .foregroundStyle(Color.white)
                 .font(.headline)
-                .frame(width: 125, height: 35)
+                .frame(width: 125, height: 30)
         })
         .buttonStyle(.bordered)
         
