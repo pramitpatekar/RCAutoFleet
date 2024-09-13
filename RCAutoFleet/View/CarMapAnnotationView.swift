@@ -27,10 +27,10 @@ struct CarMapAnnotationView: View {
             Image(systemName: "triangle.fill")
                 .resizable()
                 .scaledToFit()
-                .foregroundColor(.gray.opacity(0.6))
+                .foregroundColor(.gray.opacity(0.8))
                 .frame(width: 15, height: 15)
                 .rotationEffect(Angle(degrees: 180))
-                .offset(y: -4)
+                .offset(y: -3)
                 .padding(.bottom, 40)
         }
         .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 5)

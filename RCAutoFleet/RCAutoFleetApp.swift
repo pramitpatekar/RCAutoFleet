@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct RCAutoFleetApp: App {
+    
+    @StateObject private var vm = CarViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            CarMapAnnotationView()
+            CarLocationView()
+                .environmentObject(vm)
         }
     }
 }

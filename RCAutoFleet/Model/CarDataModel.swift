@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-struct CarDataModel: Equatable {
+struct CarDataModel: Identifiable, Equatable {
     
     let id: Int
     let isActive, isAvailable: Bool

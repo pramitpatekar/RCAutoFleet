@@ -106,9 +106,9 @@
 			children = (
 				5C2103792C92D39500422562 /* RCAutoFleetApp.swift */,
 				5C4DF2562C92FE2E001296CE /* DataService */,
+				5C2103A32C92D3FF00422562 /* Model */,
 				5C2103A42C92D41D00422562 /* View */,
 				5C4DF2532C92F825001296CE /* ViewModel */,
-				5C2103A32C92D3FF00422562 /* Model */,
 				5C21037D2C92D39600422562 /* Assets.xcassets */,
 				5C21037F2C92D39600422562 /* Preview Content */,
 			);
