@@ -50,7 +50,6 @@ struct CarLocationView: View {
                                    startPoint: .topLeading, endPoint: .bottomTrailing)
                 )
                 .background(.ultraThinMaterial)
-            
                 
             }
         }
@@ -79,32 +78,42 @@ extension CarLocationView {
                 }
             }
         )
-        
     }
+    
     
     
     private var CarsPreviewStack: some View {
-        ZStack {
-            ForEach(vm.cars) { car in
-                if vm.carMapLocation == car {
-                    
-                    CarDetailsView(cars: car)
+        VStack {
+            TabView(selection: $vm.currentCarIndex) {
+                ForEach(vm.cars.indices, id: \.self) { index in
+                    CarDetailsView(cars: vm.cars[index])
                         .shadow(color: .black.opacity(0.3), radius: 20)
                         .frame(maxWidth: .infinity)
                         .frame(maxWidth: maxWidthForIpad)
-                        .frame(maxHeight: UIScreen.main.bounds.height/3.4)
-                        .transition(.asymmetric(
-                            insertion: .move(edge: .trailing),
-                            removal: .move(edge: .leading)
-                        ))
-                    
+                        .frame(maxHeight: UIScreen.main.bounds.height / 3.4)
+                        .tag(index)  // Use the index for paging control
                 }
-                
             }
-            
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+            .frame(height: UIScreen.main.bounds.height / 3.4)
+            .onChange(of: vm.currentCarIndex) { newIndex in
+                // Update map with animation when car index changes
+                withAnimation(.easeInOut) {
+                    vm.updateMapRegion(cars: vm.cars[newIndex])
+                }
+            }
         }
-        
     }
+
+    
+    
+
+
+    
+    
+   // ------------------
+    
+    
     
     private var reserveCarButton: some View {
         Button(action: {

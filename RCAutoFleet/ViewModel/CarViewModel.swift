@@ -11,6 +11,9 @@ import SwiftUI
 
 class CarViewModel: ObservableObject {
     
+    @Published var currentCarIndex: Int = 0
+    
+    
     //All loaded cars
     @Published var cars: [CarDataModel]
     
@@ -36,10 +39,10 @@ class CarViewModel: ObservableObject {
     }
     
     
-    private func updateMapRegion(cars: CarDataModel) {
-        //withAnimation(.easeInOut) {
+    func updateMapRegion(cars: CarDataModel) {
+        withAnimation(.easeInOut) {
             mapRegion = MKCoordinateRegion(center: cars.coordinates, span: mapSpan)
-        //}
+        }
         
     }
     
