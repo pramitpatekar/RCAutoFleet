@@ -15,16 +15,6 @@ struct CarMapAnnotationView: View {
         
         VStack(spacing: 0) {
             
-            
-//            Image(systemName: "triangle.fill")
-//                .resizable()
-//                .scaledToFit()
-//                .foregroundColor(.white)
-//                .frame(width: 35, height: 20)
-//                .rotationEffect(Angle(degrees: 180))
-//                .offset(y: 40)               // this offset works reverse because it is flipped
-//                .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 2)
-            
             // Car address text
             
             VStack(alignment: .center, spacing: 2) {
@@ -40,8 +30,6 @@ struct CarMapAnnotationView: View {
                 .padding(.horizontal,20)
                 .background(Color.white)
                 .cornerRadius(10)
-                //.shadow(color: .black.opacity(0), radius: 10, x: 0, y: 2)
-                //.zIndex(2)
                 
                 
                 Image(systemName: "triangle.fill")
@@ -52,25 +40,16 @@ struct CarMapAnnotationView: View {
                     .frame(width: 35, height: 20)
                     .rotationEffect(Angle(degrees: 180))
                     .offset(y: -7)
-                    //.offset(y: 40)               // this offset works reverse because it is flipped
-                    // .shadow(color: .black.opacity(0.5), radius: 10, x: 0, y: 2)
                 
             }
             .background(Color.clear)
-            //.shadow(color: .black.opacity(0.5), radius: 10, x: 0, y: 2)
+            .offset(y: 6)
+        
             
-            
-//            RoundedRectangle(cornerRadius: 10)
-//               
-//                    .frame(width: 200)
-//                    .frame(height: 40)
-//                    .foregroundColor(.white)
-//                    .offset(y: -15)
-//                    // .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 2)
-                
             
             
             // Car location pin
+            
             Image(systemName: "car.fill")
                 .resizable()
                 .scaledToFit()
@@ -96,7 +75,7 @@ struct CarMapAnnotationView: View {
                 .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 2)
             
         }
-        .offset(y: -67)
+        .offset(y: -65)
         
     }
     
