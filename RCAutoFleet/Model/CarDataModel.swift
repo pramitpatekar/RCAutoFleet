@@ -2,7 +2,7 @@
 //  CarDataModel.swift
 //  RCAutoFleet
 //
-//  Created by Samit Patekar on 12/09/24.
+//  Created by Pramit Patekar on 12/09/24.
 //
 
 import Foundation
@@ -21,6 +21,7 @@ struct CarDataModel: Identifiable, Equatable {
     let vehiclePicAbsoluteURL: String
     let vehicleType: String
     let vehicleTypeID: Int
+    let vehicleAddr: String
     
     var coordinates: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: lat, longitude: lng)

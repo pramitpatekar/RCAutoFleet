@@ -6,42 +6,23 @@
 //
 
 
-
 import SwiftUI
 import MapKit
 
 struct CarDetailsView: View {
     
-    @EnvironmentObject private var vm: CarViewModel
+    //@EnvironmentObject private var vm: CarViewModel
     let cars: CarDataModel
     
     
     var body: some View {
-        VStack(alignment: .center, spacing: 10) {
-            VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 8) {
                 imageSection
                 titleSection
-            }
-            
-//            VStack(spacing: 10) {
-//                HStack {
-//                    previousButton
-//                    nextButton
-//                }
-//                reserveCarButton
-//            }
         }
-        .padding(20)
         .background(Color.clear)
-        
-//        .background(
-//            LinearGradient(colors: [.white.opacity(0.5),.blue.opacity(0.6),.green], 
-//               startPoint: .top, endPoint: .bottom)
-//        )
-//        .background(.ultraThinMaterial)
         .frame(width: UIScreen.main.bounds.width)
-     //   .frame(height: UIScreen.main.bounds.height/2.5)
-        .cornerRadius(10)
+        .padding(.top, 5)
         
     }
 }
@@ -49,10 +30,8 @@ struct CarDetailsView: View {
 
 #Preview {
     CarDetailsView(cars: CarDataService.cars.first!)
-        .padding()
-        .environmentObject(CarViewModel())
+       // .environmentObject(CarViewModel())
 }
-
 
 
 
@@ -68,14 +47,8 @@ extension CarDetailsView {
                         .frame(width: 200, height: 100)
                         .cornerRadius(10)
                 } placeholder: {
-                    // Show a loading indicator while the image is being loaded
-                    // ProgressView().frame(width: 100, height: 100)
-                    Image(systemName: "photo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 100)
-                        .cornerRadius(10)
-                        .foregroundColor(.gray)
+                    // Shows a loading indicator while the image is being loaded
+                    ProgressView().frame(width: 100, height: 100)
                 }
                 
             } else {
@@ -84,70 +57,26 @@ extension CarDetailsView {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 100)
-                    .cornerRadius(10)
                     .foregroundColor(.gray)
             }
             
         }
-        .cornerRadius(10)
-
+        
     }
 
     private var titleSection: some View {
-        VStack(alignment: .center, spacing: 4) {
+        VStack(alignment: .center, spacing: 2) {
             Text(cars.vehicleMake)
                 .font(.title2)
-                .fontWeight(.bold)
+                .fontWeight(.semibold)
             
             Text("\(cars.licensePlateNumber), \(cars.remainingMileage) km")
                 .font(.subheadline)
-                .fontWeight(.bold)
+                .fontWeight(.semibold)
         }
-        .frame(maxWidth: .infinity, alignment: .center)
+
     }
     
-    
-//    private var reserveCarButton: some View {
-//        Button(action: {
-//            
-//        }, label: {
-//            Text("Reserve This Car")
-//                .font(.headline)
-//                .frame(width: UIScreen.main.bounds.width - 80, height: 35)
-//                //.padding(.horizontal)
-//        })
-//        .buttonStyle(.borderedProminent)
-//        
-//        
-//        
-//    }
-//    
-//    private var nextButton: some View {
-//        Button(action: {
-//            vm.nextButtonPressed()
-//        }, label: {
-//            Text("Next")
-//                .foregroundStyle(Color.white)
-//                .font(.headline)
-//                .frame(width: 125, height: 30)
-//        })
-//        .buttonStyle(.borderedProminent)
-//        
-//    }
-//    
-//    private var previousButton: some View {
-//        Button(action: {
-//            vm.previousButtonPressed()
-//        }, label: {
-//            Text("Previous")
-//                .foregroundStyle(Color.white)
-//                .font(.headline)
-//                .frame(width: 125, height: 30)
-//        })
-//        .buttonStyle(.borderedProminent)
-//        
-//    }
-//    
 }
 
 
