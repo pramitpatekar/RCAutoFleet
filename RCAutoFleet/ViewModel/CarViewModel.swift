@@ -39,13 +39,11 @@ import SwiftUI
         self.updateMapRegion(cars: carMapLocation)
     }
     
-    
     func updateMapRegion(cars: CarDataModel) {
         withAnimation(.easeInOut) {
             mapRegion = MKCoordinateRegion(center: cars.coordinates, span: mapSpan)
         }
     }
-    
     
     func showCar(cars: CarDataModel) {
         withAnimation(.easeInOut) {

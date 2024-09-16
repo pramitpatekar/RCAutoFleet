@@ -6,7 +6,6 @@
 //
 
 
-
 import SwiftUI
 import MapKit
 
@@ -45,6 +44,7 @@ struct CarLocationView: View {
     }
 }
 
+
 #Preview {
     CarLocationView()
         .environmentObject(CarViewModel())
@@ -74,8 +74,8 @@ extension CarLocationView {
                             }
                         }
                     }
+                }
             }
-        }
         )
     }
     

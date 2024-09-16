@@ -153,9 +153,9 @@
 		5C2103A42C92D41D00422562 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E4E8A7152C940C280008533F /* CarLocationView.swift */,
 				5C4DF2592C932990001296CE /* CarMapAnnotationView.swift */,
 				5C4DF25B2C935D21001296CE /* CarDetailsView.swift */,
-				E4E8A7152C940C280008533F /* CarLocationView.swift */,
 				E40D13C02C971BA800061197 /* LaunchScreen.storyboard */,
 			);
 			path = View;
