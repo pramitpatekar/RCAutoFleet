@@ -11,32 +11,27 @@ import MapKit
 
 struct CarDetailsView: View {
     
-    //@EnvironmentObject private var vm: CarViewModel
     let cars: CarDataModel
-    
     
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
-                imageSection
-                titleSection
+            imageSection
+            titleSection
         }
         .background(Color.clear)
         .frame(width: UIScreen.main.bounds.width)
         .padding(.top, 5)
-        
     }
 }
 
 
 #Preview {
     CarDetailsView(cars: CarDataService.cars.first!)
-       // .environmentObject(CarViewModel())
 }
 
 
 
 extension CarDetailsView {
-    
     
     private var imageSection: some View{
         VStack {
@@ -59,22 +54,21 @@ extension CarDetailsView {
                     .frame(width: 100, height: 100)
                     .foregroundColor(.gray)
             }
-            
         }
-        
     }
-
+    
     private var titleSection: some View {
         VStack(alignment: .center, spacing: 2) {
             Text(cars.vehicleMake)
                 .font(.title2)
                 .fontWeight(.semibold)
+                .foregroundColor(Color.black)
             
             Text("\(cars.licensePlateNumber), \(cars.remainingMileage) km")
                 .font(.subheadline)
                 .fontWeight(.semibold)
+                .foregroundColor(Color.black)
         }
-
     }
     
 }

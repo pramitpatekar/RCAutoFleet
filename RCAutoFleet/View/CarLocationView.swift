@@ -10,6 +10,7 @@
 import SwiftUI
 import MapKit
 
+
 struct CarLocationView: View {
     
     @EnvironmentObject private var vm: CarViewModel
@@ -23,9 +24,9 @@ struct CarLocationView: View {
             
             VStack {
                 Spacer()
-            
+                
                 ZStack {
-                      CarsPreviewStack
+                    CarsPreviewStack
                         .offset(y: -25)
                     
                     reserveCarButton
@@ -34,7 +35,7 @@ struct CarLocationView: View {
                 }
                 .frame(maxHeight: UIScreen.main.bounds.height/3.5)
                 .background(
-                    LinearGradient(colors: [.white.opacity(0.5),.blue.opacity(0.7),.green.opacity(0.9)],
+                    LinearGradient(colors: [.white.opacity(0.5),.blue.opacity(0.6),.green.opacity(0.9)],
                                    startPoint: .top, endPoint: .bottom)
                 )
                 .background(.ultraThinMaterial)
@@ -63,18 +64,18 @@ extension CarLocationView {
                         if let index = vm.cars.firstIndex(where: { $0.id == car.id }) {
                             
                             // Update TabView index
-                            DispatchQueue.main.async {
-                                vm.currentCarIndex = index
-                            }
+                            vm.currentCarIndex = index
                             
                             // Update map region with animation
-                            withAnimation(.easeInOut) {
-                                vm.updateMapRegion(cars: car)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                withAnimation(.easeInOut) {
+                                    vm.updateMapRegion(cars: car)
+                                }
                             }
                         }
                     }
-                }
             }
+        }
         )
     }
     
@@ -91,6 +92,7 @@ extension CarLocationView {
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
             .onChange(of: vm.currentCarIndex) { newIndex in
+                
                 // Update map with animation when car index changes
                 withAnimation(.easeInOut) {
                     vm.updateMapRegion(cars: vm.cars[newIndex])
@@ -100,10 +102,9 @@ extension CarLocationView {
     }
     
     
-    
     private var reserveCarButton: some View {
         Button(action: {
-                showingAlert = true
+            showingAlert = true
         }, label: {
             Text("Reserve This Car")
                 .font(.headline)
@@ -115,7 +116,6 @@ extension CarLocationView {
                   message: Text("The car has been reserved"),
                   dismissButton: .default(Text("OK")))
         }
-        
     }
     
 }

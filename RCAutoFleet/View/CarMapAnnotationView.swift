@@ -12,7 +12,6 @@ struct CarMapAnnotationView: View {
     let car: CarDataModel
     
     var body: some View {
-        
         VStack(spacing: 0) {
             
             // Car address text
@@ -22,10 +21,12 @@ struct CarMapAnnotationView: View {
                     Text(car.licensePlateNumber)
                         .font(.title2)
                         .fontWeight(.semibold)
+                        .foregroundColor(Color.black)
                     
                     Text(car.vehicleAddr)
                         .font(.subheadline)
                         .fontWeight(.semibold)
+                        .foregroundColor(Color.black)
                 }
                 .padding(.horizontal,20)
                 .background(Color.white)
@@ -40,12 +41,9 @@ struct CarMapAnnotationView: View {
                     .frame(width: 35, height: 20)
                     .rotationEffect(Angle(degrees: 180))
                     .offset(y: -7)
-                
             }
             .background(Color.clear)
             .offset(y: 6)
-        
-            
             
             
             // Car location pin
@@ -67,18 +65,15 @@ struct CarMapAnnotationView: View {
             Image(systemName: "triangle.fill")
                 .resizable()
                 .scaledToFit()
-                .foregroundColor(.gray.opacity(0.85))
+                .foregroundColor(.gray.opacity(0.9))
                 .frame(width: 25, height: 15)
                 .rotationEffect(Angle(degrees: 180))
                 .offset(y: -4)
                 .padding(.bottom, 0)
                 .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 2)
-            
         }
-        .offset(y: -65)
-        
+        .offset(y: -55)
     }
-    
 }
 
 

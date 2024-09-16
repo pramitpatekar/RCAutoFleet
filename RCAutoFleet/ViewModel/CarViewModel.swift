@@ -5,27 +5,28 @@
 //  Created by Pramit Patekar on 12/09/24.
 //
 
+
 import Foundation
 import MapKit
 import SwiftUI
 
 
-class CarViewModel: ObservableObject {
+@Observable class CarViewModel: ObservableObject {
     
-    @Published var currentCarIndex: Int
+    var currentCarIndex: Int
     
     //All loaded cars
-    @Published var cars: [CarDataModel]
+    var cars: [CarDataModel]
     
     //Only current car location on map
-    @Published var carMapLocation: CarDataModel {
+    var carMapLocation: CarDataModel {
         didSet{
             updateMapRegion(cars: carMapLocation)
         }
     }
     
     //current region on map
-    @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
+    var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
     
     var mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     
