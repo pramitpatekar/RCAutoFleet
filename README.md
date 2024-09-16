@@ -4,7 +4,7 @@ Fleet Transformation Cloud
 
 Features -
 * The car data is taken from JSON data
-* Map is shown with Pin for each car
+* Map is shown with Annotation Pin for each car
 * Bottom list contains list of all cars along with basic data
 * Bottom list can be scrolled
 * Map gets updated with the selected car location
