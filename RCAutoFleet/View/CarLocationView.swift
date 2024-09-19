@@ -84,23 +84,23 @@ extension CarLocationView {
     
     
     private var CarsPreviewStack: some View {
-        VStack {
-            TabView(selection: $vm.currentCarIndex) {
-                ForEach(vm.cars.indices, id: \.self) { index in
-                    CarDetailsView(cars: vm.cars[index])
-                        .shadow(color: .black.opacity(0.5), radius: 10)
-                        .tag(index)  // Use the index for paging control
-                }
-            }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
-            .onChange(of: vm.currentCarIndex) { newIndex in
-                
-                // Update map with animation when car index changes
-                withAnimation(.easeInOut) {
-                    vm.updateMapRegion(cars: vm.cars[newIndex])
-                }
+        
+        TabView(selection: $vm.currentCarIndex) {
+            ForEach(vm.cars.indices, id: \.self) { index in
+                CarDetailsView(cars: vm.cars[index])
+                    .shadow(color: .black.opacity(0.5), radius: 10)
+                    .tag(index)  // Use the index for paging control
             }
         }
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+        .onChange(of: vm.currentCarIndex) { newIndex in
+            
+            // Update map with animation when car index changes
+            withAnimation(.easeInOut) {
+                vm.updateMapRegion(cars: vm.cars[newIndex])
+            }
+        }
+        
     }
     
     
