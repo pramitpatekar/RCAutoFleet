@@ -19,7 +19,6 @@ struct CarDetailsView: View {
             titleSection
         }
         .background(Color.clear)
-        .frame(width: UIScreen.main.bounds.width)
         .padding(.top, 5)
     }
 }
@@ -37,13 +36,15 @@ extension CarDetailsView {
         VStack {
             if let imageURL = URL(string: cars.vehiclePicAbsoluteURL) {
                 AsyncImage(url: imageURL) { image in
-                    image.resizable()
+                    image
+                        .resizable()
                         .scaledToFit()
                         .frame(width: 200, height: 100)
                         .cornerRadius(10)
                 } placeholder: {
                     // Shows a loading indicator while the image is being loaded
-                    ProgressView().frame(width: 100, height: 100)
+                    ProgressView()
+                        .frame(width: 100, height: 100)
                 }
                 
             } else {

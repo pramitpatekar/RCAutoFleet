@@ -28,7 +28,7 @@ import SwiftUI
     //current region on map
     var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
     
-    var mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+    var mapSpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     
     
     init() {
@@ -45,10 +45,5 @@ import SwiftUI
         }
     }
     
-    func showCar(cars: CarDataModel) {
-        withAnimation(.easeInOut) {
-            carMapLocation = cars
-        }
-    }
     
 }

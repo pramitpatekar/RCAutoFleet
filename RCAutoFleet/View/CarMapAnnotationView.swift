@@ -52,7 +52,7 @@ struct CarMapAnnotationView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 30, height: 30)
-                .font(.headline)
+                .font(.headline)             // makes the car image slightly bold
                 .foregroundColor(.black)
                 .padding(10)
                 .background(

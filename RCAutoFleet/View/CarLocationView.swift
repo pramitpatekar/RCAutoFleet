@@ -53,6 +53,7 @@ struct CarLocationView: View {
 
 extension CarLocationView {
     
+    
     private var mapLayer: some View {
         Map(coordinateRegion: $vm.mapRegion,
             annotationItems: vm.cars,
