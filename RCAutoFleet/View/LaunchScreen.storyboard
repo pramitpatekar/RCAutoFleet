@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,27 +12,38 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
-                                <rect key="frame" x="0.0" y="832" width="393" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo-Launch" translatesAutoresizingMaskIntoConstraints="NO" id="Wsz-km-2Ij">
-                                <rect key="frame" x="0.0" y="282" width="393" height="288"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-Launch" translatesAutoresizingMaskIntoConstraints="NO" id="Wsz-km-2Ij">
+                                <rect key="frame" x="22.5" y="-96.5" width="330" height="860"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="NZF-y3-KOI">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="300"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="330"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" secondItem="Wsz-km-2Ij" secondAttribute="height" multiplier="393:1024" id="zYa-Kt-lTc"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
-                            <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="Wsz-km-2Ij" secondAttribute="bottom" constant="248" id="23e-Do-uLL"/>
+                            <constraint firstItem="Wsz-km-2Ij" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="223" id="Lw0-48-zav"/>
+                            <constraint firstItem="Wsz-km-2Ij" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="Ohd-Qq-GHx"/>
+                            <constraint firstItem="Wsz-km-2Ij" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ToP-pe-Bqn"/>
+                            <constraint firstItem="Wsz-km-2Ij" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="btZ-7O-CJm"/>
+                            <constraint firstItem="Wsz-km-2Ij" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="rEF-7s-nc4"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="23e-Do-uLL"/>
+                                <exclude reference="rEF-7s-nc4"/>
+                                <exclude reference="Ohd-Qq-GHx"/>
+                                <exclude reference="Lw0-48-zav"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -41,6 +52,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo-Launch" width="1024" height="1024"/>
+        <image name="Logo-Launch" width="341.33334350585938" height="341.33334350585938"/>
     </resources>
 </document>

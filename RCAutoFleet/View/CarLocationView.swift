@@ -26,7 +26,8 @@ struct CarLocationView: View {
                 
                 ZStack {
                     CarsPreviewStack
-                        .offset(y: -25)
+                        .offset(y: -30)
+                        .padding(.bottom,5)
                     
                     reserveCarButton
                         .offset(y: 110)
